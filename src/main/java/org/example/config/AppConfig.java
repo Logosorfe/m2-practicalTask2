@@ -8,23 +8,26 @@ public class AppConfig {
     private final String currency;
     private final double taxRate;
 
-    private AppConfig(){
+    private AppConfig() {
         this.applicationName = "Bootcamp Payment App";
         this.currency = "EUR";
-        this.taxRate = 0.21;
+        this.taxRate = 1.21; // changed this from initial 0.21 in order to calculate easily
     }
 
-    public static AppConfig getInstance(){
-        // TODO
-        return null;
+    public static AppConfig getInstance() {
+        if (instance == null)
+            instance = new AppConfig();
+        return instance;
     }
 
     public String getApplicationName() {
         return applicationName;
     }
+
     public String getCurrency() {
         return currency;
     }
+
     public double getTaxRate() {
         return taxRate;
     }

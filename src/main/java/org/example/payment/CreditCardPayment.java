@@ -1,5 +1,6 @@
 package org.example.payment;
 
+import org.example.config.AppConfig;
 import org.example.model.PaymentResult;
 
 public class CreditCardPayment extends PaymentMethod {
@@ -14,7 +15,14 @@ public class CreditCardPayment extends PaymentMethod {
 
     @Override
     public PaymentResult processPayment(double amount) {
-        // TODO: add basic validations
-        return new PaymentResult(true, "Paid " + amount + " using credit card ending with " + cardNumber.substring(cardNumber.length() - 4));
+        if (!cardNumber.matches("^\\d{4} \\d{4} \\d{4} \\d{4}$"))
+            throw new IllegalArgumentException("Invalid card number");
+
+        if (!cardHolderName.matches("^[A-Z]+ [A-Z]+$"))
+            throw new IllegalArgumentException("Invalid cardholder name");
+
+        return new PaymentResult(true, "Paid " + String.format("%.2f", amount) + " "
+                + AppConfig.getInstance().getCurrency() + " using credit card ending with "
+                + cardNumber.substring(cardNumber.length() - 4));
     }
 }

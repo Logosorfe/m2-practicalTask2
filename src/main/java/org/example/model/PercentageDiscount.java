@@ -1,10 +1,11 @@
 package org.example.model;
 
-public class PercentageDiscount extends Discount{
+public class PercentageDiscount extends Discount {
     private final double percentage;
-    public PercentageDiscount(String code,double percentage){
+
+    public PercentageDiscount(String code) {
         super(code);
-        this.percentage = percentage;
+        this.percentage = Double.parseDouble(code.substring(code.length() - 2));
     }
 
     @Override

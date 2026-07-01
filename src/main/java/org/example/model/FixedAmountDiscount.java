@@ -1,6 +1,14 @@
 package org.example.model;
 
-public class FixedAmountDiscount {
-    // TODO
-    // 'apply' formula: Math.max(0,originalAmount - amount)
+import org.example.config.AppConfig;
+
+public class FixedAmountDiscount extends Discount {
+    public FixedAmountDiscount() {
+        super("TAXFREE");
+    }
+
+    @Override
+    public double apply(double originalAmount) {
+        return originalAmount / AppConfig.getInstance().getTaxRate();
+    }
 }

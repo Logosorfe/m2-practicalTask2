@@ -11,12 +11,12 @@ public class OrderItem {
         this.quantity = quantity;
     }
 
-    public double calculateTotal(){
+    public double calculateTotal() {
         return price * quantity;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return name + " x" + quantity + " = " + calculateTotal();
     }
 }
