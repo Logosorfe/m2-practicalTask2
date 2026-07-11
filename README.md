@@ -33,6 +33,6 @@ order-dependent logic. Prioritize this first because it affects core task reliab
 menu/input values crashed the app during runtime check; use safe parsing and retry prompts. Address this
 next to make the flow robust for users. Happy-path runtime scenario crashed; review end-to-end flow from
 order creation to payment. Address this next to make the flow robust for users. Invalid payment
-selection throws an exception; show a user-friendly message and return to menu instead. Address this next
-to make the flow robust for users.
+selection throws an exception; show a user-friendly message and return to menu instead. Address this
+next to make the flow robust for users.
 ```
